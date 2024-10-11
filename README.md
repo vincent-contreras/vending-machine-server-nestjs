@@ -26,17 +26,39 @@
 
 ## Description
 
-This project is a Vending Machine using [Nest's](https://github.com/nestjs/nest) framework TypeScript starter repository. This vending machine server has the following simulated features:
-1. Admin User Login to Check Stocks of Items
+This project is a Vending Machine using [Nest's](https://github.com/nestjs/nest) framework TypeScript starter repository. This is one of the many implementations of this project. Other implementations will be developed in the following frameworks:
+- Spring Boot using Java
+- Spring Boot using Kotlin
+- Django
+
+### High Level Features
+This vending machine server has the following simulated features:
+1. Admin User Login to Check Stocks of Items and Replenish Items
 2. Payment Method via Credit Card (simulation only)
-3. Payment Method using cash
+3. Payment Method using cash (Korean Won coins: 100, 500; Korean Won Bills: 1000, 5000, 10,000 and 50,000)
 4. Ability to give change in cash
 5. Credit card payment fallback daemons
+
+### Technical Features
+- Redis as the temporary storage cache
+- MongoDB as the database
+- Docker ready for easy deployment
+
+This project may be a little over-spec but this project reflects a vending machine network that connects to a payment system.
+
+The payment daemon runs independently and reads data via a queueing system using Apache Kaftka.
 
 ## Installation
 
 ```bash
 $ yarn install
+```
+
+## Setting the Admin Credentials
+Admin credentials are currently being saved as environment variables:
+```
+# direnv
+ADMIN_PASSWORD=YourSecurePasswordHere123!!!
 ```
 
 ## Running the app
@@ -76,10 +98,9 @@ Vending Machine Server by Paul Vincent Contreras is also an open-source project.
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Paul Vincent Contreras](https://linkedin.com/in/vincecontreras)
+- Website - [https://simplyconvinced.com](https://simplyconvinced.com/)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+As of October 11, 2024, Vending Machine Server based in Nest.js has no associated licensing model but is currently an open-source project. However, this project should be referenced when used.

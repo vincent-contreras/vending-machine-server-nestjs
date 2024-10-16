@@ -43,6 +43,7 @@ This vending machine server has the following simulated features:
 - Redis as the temporary storage cache
 - MongoDB as the database
 - Docker ready for easy deployment
+- MikroORM as the database migration tool
 
 This project may be a little over-spec but this project reflects a vending machine network that connects to a payment system.
 

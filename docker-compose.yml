@@ -1,0 +1,10 @@
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - db-data:/Users/vincent-ph/docker-data/vending-machine/mongodb-data
+
+volumes:
+  db-data:

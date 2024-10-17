@@ -37,6 +37,8 @@ export class ButtonsService {
     result.count = result.count - 1;
 
     await this.buttonModel.updateOne({ buttonNo }, result);
+
+    return { "purchase": true }
   }
 
   async updateStock(buttonNo: number, updateButtonDto: UpdateButtonDto) {
@@ -48,7 +50,9 @@ export class ButtonsService {
 
     result.count = updateButtonDto.count;
 
-    await this.buttonModel.updateOne({ buttonNo }, result);
+    await this.buttonModel.updateOne({ buttonNo }, result); 
+
+    return this.buttonModel.findOne({ buttonNo });
   }
 
   async removeItems(buttonNo: number) {

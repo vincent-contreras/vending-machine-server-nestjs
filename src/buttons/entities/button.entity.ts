@@ -2,13 +2,13 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 
 @Schema()
 export class Button {
-    @Prop()
+    @Prop({ required: true })
     buttonNo: number;
 
-    @Prop()
+    @Prop({ required: true })
     itemName: string;
 
-    @Prop()
+    @Prop({ required: true })
     count: number;
 }
 

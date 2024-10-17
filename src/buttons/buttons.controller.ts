@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ButtonsService } from './buttons.service';
 import { CreateButtonDto } from './dto/create-button.dto';
 import { UpdateButtonDto } from './dto/update-button.dto';
+import { Button } from './entities/button.entity';
 
 @Controller({ version: '1', path: 'buttons'})
 export class ButtonsController {
@@ -13,7 +14,7 @@ export class ButtonsController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<Button[]> {
     return this.buttonsService.findAll();
   }
 

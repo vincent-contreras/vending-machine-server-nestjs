@@ -1,4 +1,4 @@
-import { IsInt, IsString, Length, Min } from 'class-validator'
+import { IsEmail, IsInt, IsString, Length, Min } from 'class-validator'
 
 export class CreateButtonDto {
     @IsInt()

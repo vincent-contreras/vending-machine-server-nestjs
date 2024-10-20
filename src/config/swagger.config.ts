@@ -1,6 +1,6 @@
-import { INestApplication } from "@nestjs/common";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import * as path from "path";
+import { INestApplication } from '@nestjs/common';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as path from 'path';
 
 const { BASE_URL, SWAGGER_URL } = process.env;
 
@@ -12,7 +12,7 @@ export class SwaggerConfig {
   }
 
   setup() {
-    if (process.env.NODE_ENV == "production") return;
+    if (process.env.NODE_ENV == 'production') return;
 
     console.log(`----- ${BASE_URL}`)
     console.log(`----- ${SWAGGER_URL}`)
@@ -26,9 +26,9 @@ export class SwaggerConfig {
 
   private getDocument() {
     const documentBuilder = new DocumentBuilder()
-      .setTitle("Vending Machine Server")
-      .setDescription("Vending Machine Server that represents a vending machine")
-      .setVersion("1.0")
+      .setTitle('Vending Machine Server')
+      .setDescription('Vending Machine Server that represents a vending machine')
+      .setVersion('1.0')
       .build();
 
     return SwaggerModule.createDocument(this.app, documentBuilder);

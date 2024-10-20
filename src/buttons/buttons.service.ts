@@ -38,7 +38,7 @@ export class ButtonsService {
 
     await this.buttonModel.updateOne({ buttonNo }, result);
 
-    return { "purchase": true }
+    return { purchase: true }
   }
 
   async updateStock(buttonNo: number, updateButtonDto: UpdateButtonDto) {

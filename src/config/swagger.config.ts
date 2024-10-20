@@ -14,9 +14,6 @@ export class SwaggerConfig {
   setup() {
     if (process.env.NODE_ENV == 'production') return;
 
-    console.log(`----- ${BASE_URL}`)
-    console.log(`----- ${SWAGGER_URL}`)
-
     SwaggerModule.setup(
       path.join(BASE_URL, SWAGGER_URL),
       this.app,

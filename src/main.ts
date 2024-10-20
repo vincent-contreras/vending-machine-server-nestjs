@@ -2,7 +2,7 @@ import { AppModule } from './app.module';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerConfig } from './config/swagger.config';
 
-const { BASE_URL } = process.env;
+const { BASE_URL, APP_PORT } = process.env;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -12,6 +12,6 @@ async function bootstrap() {
 
   new SwaggerConfig(app).setup();
   
-  await app.listen(3000);
+  await app.listen(APP_PORT);
 }
 bootstrap();

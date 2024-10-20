@@ -2,3 +2,4 @@ export ADMIN_PASSWORD='YourSecurePasswordHere'
 export BASE_URL=''
 export SWAGGER_URL='docs'
 export DB_NAME='test'
+export APP_PORT=3000

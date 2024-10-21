@@ -1,7 +1,7 @@
-import { IsString, Length } from "class-validator";
+import { IsString, Length } from 'class-validator';
 
 export class CreateAuthDto {
-    @Length(8,100)
+    @Length(8, 100)
     @IsString()
     password: string;
 }

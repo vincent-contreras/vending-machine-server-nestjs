@@ -42,9 +42,6 @@ export default [{
     },
 
     rules: {
-        quotes: ["error", "single"],
-        semi: ["error", "always"],
-        "no-multi-spaces": ["error"],
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",

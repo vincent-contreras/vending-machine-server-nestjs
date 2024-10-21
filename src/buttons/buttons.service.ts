@@ -7,63 +7,63 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class ButtonsService {
-  constructor(@InjectModel(Button.name) private buttonModel: Model<Button>) {}
+    constructor(@InjectModel(Button.name) private buttonModel: Model<Button>) {}
 
-  async create(createButtonDto: CreateButtonDto) {
-    const result = await this.buttonModel.findOne({ buttonNo: createButtonDto.buttonNo });
+    async create(createButtonDto: CreateButtonDto) {
+        const result = await this.buttonModel.findOne({ buttonNo: createButtonDto.buttonNo });
 
-    if (result != null) {
-      return new BadRequestException(`${createButtonDto.buttonNo} already exists! Consider removing this item first.`);
+        if (result != null) {
+            return new BadRequestException(`${createButtonDto.buttonNo} already exists! Consider removing this item first.`);
+        }
+
+        const button = new this.buttonModel(createButtonDto);
+        return button.save();
     }
 
-    const button = new this.buttonModel(createButtonDto);
-    return button.save();
-  }
-
-  findAll() {
-    return this.buttonModel.find().exec();
-  }
-
-  async buyOne(buttonNo: number) {
-    const result = await this.buttonModel.findOne({ buttonNo });
-
-    if (result == null) {
-      return new BadRequestException(`${buttonNo} does not exit`);
+    findAll() {
+        return this.buttonModel.find().exec();
     }
 
-    if (result.count == 0) {
-      return new BadRequestException(`${buttonNo} has no more stocks`);
-    }
-    result.count = result.count - 1;
+    async buyOne(buttonNo: number) {
+        const result = await this.buttonModel.findOne({ buttonNo });
 
-    await this.buttonModel.updateOne({ buttonNo }, result);
+        if (result == null) {
+            return new BadRequestException(`${buttonNo} does not exit`);
+        }
 
-    return { purchase: true }
-  }
+        if (result.count == 0) {
+            return new BadRequestException(`${buttonNo} has no more stocks`);
+        }
+        result.count = result.count - 1;
 
-  async updateStock(buttonNo: number, updateButtonDto: UpdateButtonDto) {
-    const result = await this.buttonModel.findOne({ buttonNo });
+        await this.buttonModel.updateOne({ buttonNo }, result);
 
-    if (result == null) {
-      return new BadRequestException(`${buttonNo} does not exit`);
-    }
-
-    result.count = updateButtonDto.count;
-
-    await this.buttonModel.updateOne({ buttonNo }, result); 
-
-    return this.buttonModel.findOne({ buttonNo });
-  }
-
-  async removeItems(buttonNo: number) {
-    const result = await this.buttonModel.findOne({ buttonNo });
-
-    if (result == null) {
-      return new BadRequestException(`${buttonNo} does not exit`);
+        return { purchase: true };
     }
 
-    result.count = 0;
+    async updateStock(buttonNo: number, updateButtonDto: UpdateButtonDto) {
+        const result = await this.buttonModel.findOne({ buttonNo });
 
-    await this.buttonModel.updateOne({ buttonNo }, result);
-  }
+        if (result == null) {
+            return new BadRequestException(`${buttonNo} does not exit`);
+        }
+
+        result.count = updateButtonDto.count;
+
+        await this.buttonModel.updateOne({ buttonNo }, result);
+
+        return this.buttonModel.findOne({ buttonNo });
+    }
+
+    async removeItems(buttonNo: number) {
+        const result = await this.buttonModel.findOne({ buttonNo });
+
+        if (result == null) {
+            return new BadRequestException(`${buttonNo} does not exit`);
+        }
+
+        result.count = 0;
+
+        await this.buttonModel.updateOne({ buttonNo }, result);
+    }
 }

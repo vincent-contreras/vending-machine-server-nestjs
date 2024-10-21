@@ -2,4 +2,7 @@ export ADMIN_PASSWORD='YourSecurePasswordHere'
 export BASE_URL=''
 export SWAGGER_URL='docs'
 export DB_NAME='test'
+export DB_HOST='localhost'
+export DB_PORT=27017
 export APP_PORT=3000
+export JWT_CONSTANT='MySuperSecureJWTConstant12345!!!'

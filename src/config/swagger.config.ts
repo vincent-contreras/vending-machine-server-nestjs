@@ -18,7 +18,14 @@ export class SwaggerConfig {
     }
 
     private getDocument() {
-        const documentBuilder = new DocumentBuilder().setTitle('Vending Machine Server').setDescription('Vending Machine Server that represents a vending machine').setVersion('1.0').build();
+        const documentBuilder = new DocumentBuilder()
+            .setTitle('Vending Machine Server')
+            .setDescription('Vending Machine Server that represents a vending machine')
+            .setVersion('1.0')
+            .addBearerAuth()
+            .addTag('buttons', 'APIs for buttons')
+            .addTag('auth', 'Authentication and authorization')
+            .build();
 
         return SwaggerModule.createDocument(this.app, documentBuilder);
     }

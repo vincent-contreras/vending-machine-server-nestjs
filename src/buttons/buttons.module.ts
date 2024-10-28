@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ButtonsService } from './buttons.service';
 import { ButtonsController } from './buttons.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Button, ButtonSchema } from './entities/button.entity';
+import { Button, ButtonSchema } from './schemas/button.schema';
 
 @Module({
     imports: [MongooseModule.forFeature([{ name: Button.name, schema: ButtonSchema }])],

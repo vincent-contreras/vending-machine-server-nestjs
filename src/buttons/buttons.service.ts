@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { CreateButtonDto } from './dto/create-button.dto';
 import { UpdateButtonDto } from './dto/update-button.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Button } from './entities/button.schema';
+import { Button } from './schemas/button.schema';
 import { Model } from 'mongoose';
 
 @Injectable()

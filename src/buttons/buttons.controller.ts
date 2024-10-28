@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, BadReques
 import { ButtonsService } from './buttons.service';
 import { CreateButtonDto } from './dto/create-button.dto';
 import { UpdateButtonDto } from './dto/update-button.dto';
-import { Button } from './entities/button.schema';
+import { Button } from './schemas/button.schema';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { ApiBadRequestResponse, ApiBearerAuth, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 
